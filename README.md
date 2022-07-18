@@ -25,3 +25,12 @@ $ go run cmd/hardcode/main.go | buildctl build --local context=. --output type=t
 You can unpack `out.tar` and find `README.md` and `built.txt` files which are operated in the program.
 
 You can also modify the output type to build the type that `buildkitd` supports: [Output](https://github.com/moby/buildkit#output).
+
+## Dependencies
+
+- Golang: https://go.dev/dl/
+- Docker: https://docs.docker.com/
+- Image: https://hub.docker.com/r/moby/buildkit
+- CLI:
+  - buildctl: https://github.com/moby/buildkit
+  - jq: https://stedolan.github.io/jq/
