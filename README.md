@@ -53,7 +53,9 @@ $ export BUILDKIT_HOST=docker-container://buildkitd
 $ go run cmd/hardcode-scratch/main.go | buildctl build --local context=. --output type=tar,dest=out.tar
 ```
 
-You can unpack `out.tar` and find `README.md` file which are operated in the program.
+You can unpack `out.tar` and find copied files which are operated in the program.
+
+You can also get a feel for buildkitd's parallel builds and caching by looking at the execution.
 
 
 Note:

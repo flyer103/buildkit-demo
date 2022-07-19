@@ -19,5 +19,7 @@ func main() {
 
 func createLLBState() llb.State {
 	return llb.Scratch().
-		File(llb.Copy(llb.Local("context"), "README.md", "README.md"))
+		File(llb.Copy(llb.Local("context"), "README.md", "README.md")).
+		File(llb.Copy(llb.Local("context"), "LICENSE", "LICENSE")).
+		File(llb.Copy(llb.Local("context"), "go.mod", "go.mod"))
 }
