@@ -60,3 +60,13 @@ You can also get a feel for buildkitd's parallel builds and caching by looking a
 
 Note:
 - I don't understand the internals yet -_-
+
+## frontend-mockerfile
+
+This demo uses other people's examples to see how buildkitd frontend is implemented: [detail](./cmd/frontend-mockerfile/README.md).
+
+Get json formatted LLB:
+
+```shell
+$ go run cmd/frontend-mockerfile/main.go -filename cmd/frontend-mockerfile/Mockerfile.yaml -graph | buildctl debug dump-llb | jq .
+```
