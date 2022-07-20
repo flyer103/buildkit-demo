@@ -9,10 +9,7 @@ require (
 	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/klog/v2 v2.70.1
-)
-
-require (
-	github.com/agext/levenshtein v1.2.3 // indirect
+  	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/containerd/ttrpc v1.1.0 // indirect
 	github.com/containerd/typeurl v1.0.2 // indirect
 	github.com/docker/distribution v2.8.0+incompatible // indirect
