@@ -7,12 +7,12 @@ import (
 	"io"
 	"os"
 
-	"k8s.io/klog/v2"
-
-	mock "github.com/flyer103/buildkit-demo/pkg/frontend-mockerfile"
 	"github.com/moby/buildkit/client/llb"
 	"github.com/moby/buildkit/frontend/gateway/grpcclient"
 	"github.com/moby/buildkit/util/appcontext"
+	"k8s.io/klog/v2"
+
+	mock "github.com/flyer103/buildkit-demo/pkg/frontend-mockerfile"
 )
 
 var graph bool
