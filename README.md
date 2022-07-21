@@ -83,3 +83,13 @@ $ docker push <IMAGE/BUILT/ABOVE>
 # Image Example: `ccr.ccs.tencentyun.com/flyer103/frontend-mocker:latest`
 $ buildctl build --frontend=gateway.v0 --opt source=<IMAGE/BUILT/ABOVE> --local context=. --local dockerfile=./yaml/frontend-mockerfile/ --output type=oci,dest=output.tar
 ```
+
+If you add `# syntax=ccr.ccs.tencentyun.com/flyer103/frontend-mocker:latest` to the first line of `yaml/frontend-mockerfile/Mockerfile.yaml`, you could also use `docker build` as following:
+
+```shell
+$ docker build . -t demo:0.1 -f yaml/frontend-mockerfile/Mockerfile.yaml
+```
+
+
+Note:
+- `syntax` directive in the yaml file is not a must if we use `buildctl`
