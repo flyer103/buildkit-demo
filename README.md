@@ -70,3 +70,16 @@ Get json formatted LLB:
 ```shell
 $ go run cmd/frontend-mockerfile/main.go -filename cmd/frontend-mockerfile/Mockerfile.yaml -graph | buildctl debug dump-llb | jq .
 ```
+
+Build:
+
+```shell
+# You should change image registry in the following script.
+$ ./build/build-frontend-mockerfile.sh
+
+# PUSH IMAGE THAT IS BUILT ABOVE.
+$ docker push <IMAGE/BUILT/ABOVE>
+
+# Image Example: `ccr.ccs.tencentyun.com/flyer103/frontend-mocker:latest`
+$ buildctl build --frontend=gateway.v0 --opt source=<IMAGE/BUILT/ABOVE> --local context=. --local dockerfile=./yaml/frontend-mockerfile/ --output type=oci,dest=output.tar
+```

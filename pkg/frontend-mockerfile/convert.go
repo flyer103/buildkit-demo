@@ -26,12 +26,12 @@ func Mockerfile2LLB(c *Config) (llb.State, *Image) {
 }
 
 func packages(base llb.State, p *Package) llb.State {
-	base = base.Run(shf("apt-get update && apt-get install apt-transport-https -y")).Root()
-	for _, repo := range p.Repo {
-		base = base.Run(shf("echo \"%s\" >> /etc/apt/sources.list", repo)).Root()
-	}
+	base = base.Run(shf("apt-get update && apt-get install apt-transport-https gnupg -y")).Root()
 	for _, key := range p.Gpg {
 		base = aptAddKey(base, key)
+	}
+	for _, repo := range p.Repo {
+		base = base.Run(shf("echo \"%s\" >> /etc/apt/sources.list", repo)).Root()
 	}
 
 	if len(p.Install) > 0 {
@@ -90,7 +90,7 @@ func aptAddKey(dst llb.State, url string) llb.State {
 
 func curl() llb.State {
 	return llb.Image("docker.io/library/alpine:3.6").
-		Run(llb.Shlexf("apk add --no-cache curl")).
+		Run(llb.Shlexf("apk add --no-cache curl tar")).
 		Root()
 }
 

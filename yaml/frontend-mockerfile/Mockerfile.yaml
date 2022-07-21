@@ -1,0 +1,23 @@
+apiVersion: v1alpha1
+images:
+- name: demo
+  from: ubuntu:22.04
+  package:
+    install:
+    - ca-certificates
+    - curl
+    - build-essential
+    - git
+    - gcc
+    - lsb-release
+  external:
+  - src: https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl
+    dst: /usr/local/bin/kubectl
+  - src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v4.5.5/kustomize_v4.5.5_linux_amd64.tar.gz
+    dst: /usr/local/bin/kustomize
+  - src: https://get.helm.sh/helm-v3.9.1-linux-amd64.tar.gz
+    dst: /tmp/helm
+    install:
+    - install /tmp/helm/linux-amd64/helm /usr/local/bin/helm
+  - src: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-217.0.0-linux-x86_64.tar.gz
+    dst: /tmp
